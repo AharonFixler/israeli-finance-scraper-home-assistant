@@ -1,0 +1,1 @@
+# israeli-finance-scraper-home-assistant
