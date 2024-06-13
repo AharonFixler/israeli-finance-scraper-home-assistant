@@ -3,6 +3,22 @@ FROM node:22
 ARG NODE_ENV=production
 ENV NODE_ENV=${NODE_ENV}
 
+#Create a app directory
+WORKDIR /app
+
+#Install app dependencies
+COPY package*.json ./
+
+#Run npm install
+RUN npm install
+
+#Bundle app souce
+COPY . .
+
+EXPOSE 8080
+
+CMD [ "npm", "start" ]
+
 # Required for puppeteer to run
 # RUN yum install -y amazon-linux-extras
 # RUN amazon-linux-extras install epel -y
